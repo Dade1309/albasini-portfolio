@@ -296,11 +296,51 @@
       color: rgba(255,255,255,0.68);
     }
 
-    .destination-arrow {
-      font-family: "DM Serif Display", serif;
-      font-size: 50px;
+    .destination-arrow,
+    .work-arrow,
+    .service-arrow,
+    .link-arrow {
+      position: relative;
+      display: inline-block;
+      line-height: 0;
+      font-size: 0;
+      color: #f1efe8;
+    }
 
+    .destination-arrow {
+      width: 48px;
+      height: 48px;
+      flex: 0 0 48px;
       transition: transform 0.3s ease;
+    }
+
+    .destination-arrow::before,
+    .work-arrow::before,
+    .service-arrow::before,
+    .link-arrow::before {
+      content: "";
+      position: absolute;
+      left: 8%;
+      bottom: 8%;
+      width: 92%;
+      height: 2px;
+      background: currentColor;
+      transform: rotate(-45deg);
+      transform-origin: left center;
+    }
+
+    .destination-arrow::after,
+    .work-arrow::after,
+    .service-arrow::after,
+    .link-arrow::after {
+      content: "";
+      position: absolute;
+      top: 5%;
+      right: 5%;
+      width: 34%;
+      height: 34%;
+      border-top: 2px solid currentColor;
+      border-right: 2px solid currentColor;
     }
 
     .destination-card:hover .destination-arrow {
@@ -409,8 +449,20 @@
     }
 
     .work-arrow {
-      font-size: 32px;
-      text-align: right;
+      width: 30px;
+      height: 30px;
+      justify-self: end;
+    }
+
+    .service-arrow {
+      width: 24px;
+      height: 24px;
+    }
+
+    .link-arrow {
+      width: 14px;
+      height: 14px;
+      flex: 0 0 14px;
     }
 
 
@@ -795,9 +847,7 @@
             Coast · Desert · Street · Film · Photography
           </div>
 </div>
-<div class="destination-arrow">
-          ↗
-        </div>
+<div class="destination-arrow" aria-hidden="true"></div>
 </div>
 </a>
 
@@ -816,7 +866,7 @@
             Manhattan · Brooklyn · Night · Street
           </div>
         </div>
-        <div class="destination-arrow">↗</div>
+        <div class="destination-arrow" aria-hidden="true"></div>
       </div>
     </a>
 
@@ -835,7 +885,7 @@
             Mountains · Winter · Alpine · Nature
           </div>
         </div>
-        <div class="destination-arrow">↗</div>
+        <div class="destination-arrow" aria-hidden="true"></div>
       </div>
     </a>
 
@@ -878,7 +928,7 @@
       Travel Film / California<br>
       Coast, desert, street and cinematic storytelling
     </div>
-    <div class="work-arrow">↗</div>
+    <div class="work-arrow" aria-hidden="true"></div>
   </a>
 
   <a href="new-york.html" class="work-feature">
@@ -887,7 +937,7 @@
       Travel Photography / New York<br>
       Manhattan, Brooklyn, street and night
     </div>
-    <div class="work-arrow">↗</div>
+    <div class="work-arrow" aria-hidden="true"></div>
   </a>
 
   <a href="dolomites.html" class="work-feature">
@@ -896,7 +946,7 @@
       Travel Photography / Dolomites<br>
       Winter, alpine landscapes and mountain film
     </div>
-    <div class="work-arrow">↗</div>
+    <div class="work-arrow" aria-hidden="true"></div>
   </a>
 
 </section>
@@ -916,9 +966,7 @@
       Story-driven editing for travel, lifestyle and social content —
       from pacing and structure to sound, color and final delivery.
     </div>
-<div>
-      ↗
-    </div>
+<div class="service-arrow" aria-hidden="true"></div>
 </div>
 <div class="service-row">
 <div class="service-title">
@@ -928,9 +976,7 @@
       Travel, lifestyle and landscape photography with a natural,
       cinematic approach focused on atmosphere and genuine moments.
     </div>
-<div>
-      ↗
-    </div>
+<div class="service-arrow" aria-hidden="true"></div>
 </div>
 <div class="service-row">
 <div class="service-title">
@@ -940,9 +986,7 @@
       Short-form visual content for brands, teams, destinations and digital
       platforms — built to feel consistent, clean and intentional.
     </div>
-<div>
-      ↗
-    </div>
+<div class="service-arrow" aria-hidden="true"></div>
 </div>
 <div class="service-row">
 <div class="service-title">
@@ -952,9 +996,7 @@
       Destination-focused photo stories, travel films and visual itineraries
       that connect places, movement and real experiences.
     </div>
-<div>
-      ↗
-    </div>
+<div class="service-arrow" aria-hidden="true"></div>
 </div>
 </section>
 <!-- ======================================
@@ -1040,15 +1082,15 @@
 <div class="contact-bottom">
 <a href="mailto:davidealbasinii@gmail.com">
 <span>Email</span>
-<span>↗</span>
+<span class="link-arrow" aria-hidden="true"></span>
 </a>
 <a href="https://www.instagram.com/davidealbasini/" rel="noopener noreferrer" target="_blank">
 <span>Instagram</span>
-<span>↗</span>
+<span class="link-arrow" aria-hidden="true"></span>
 </a>
 <a href="https://www.linkedin.com/in/davide-albasini-66074a2b7/" rel="noopener noreferrer" target="_blank">
 <span>LinkedIn</span>
-<span>↗</span>
+<span class="link-arrow" aria-hidden="true"></span>
 </a>
 </div>
 </section>
