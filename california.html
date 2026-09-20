@@ -345,9 +345,38 @@
     }
 
     .arrow {
-      font-size: 35px;
+      position: relative;
+      display: inline-block;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 34px;
+      line-height: 0;
+      font-size: 0;
+      color: #fff;
       transition: transform 0.3s ease;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    }
+
+    .arrow::before {
+      content: "";
+      position: absolute;
+      left: 8%;
+      bottom: 8%;
+      width: 92%;
+      height: 2px;
+      background: currentColor;
+      transform: rotate(-45deg);
+      transform-origin: left center;
+    }
+
+    .arrow::after {
+      content: "";
+      position: absolute;
+      top: 5%;
+      right: 5%;
+      width: 34%;
+      height: 34%;
+      border-top: 2px solid currentColor;
+      border-right: 2px solid currentColor;
     }
 
     .place-card:hover .arrow {
@@ -481,9 +510,9 @@
   </a>
 
   <nav>
-    <a href="#film" class="desktop-only">Film</a>
+    <a href="#film">Film</a>
+    <a href="#places">Places</a>
     <a href="california-PHOTOS.html">Photos</a>
-    <a href="#places" class="desktop-only">Places</a>
     <a href="#travel" class="desktop-only">Travel</a>
     <a href="index.html">Home</a>
   </nav>
@@ -662,9 +691,7 @@
 
           </div>
 
-          <div class="arrow">
-            ↗
-          </div>
+          <div class="arrow" aria-hidden="true"></div>
 
         </div>
 
@@ -700,9 +727,7 @@
 
           </div>
 
-          <div class="arrow">
-            ↗
-          </div>
+          <div class="arrow" aria-hidden="true"></div>
 
         </div>
 
@@ -738,9 +763,7 @@
 
           </div>
 
-          <div class="arrow">
-            ↗
-          </div>
+          <div class="arrow" aria-hidden="true"></div>
 
         </div>
 
@@ -775,9 +798,7 @@
 
           </div>
 
-          <div class="arrow">
-            ↗
-          </div>
+          <div class="arrow" aria-hidden="true"></div>
 
         </div>
 
@@ -858,9 +879,7 @@
           </div>
         </div>
 
-        <div style="font-size:34px;">
-          ↗
-        </div>
+        <div class="arrow" aria-hidden="true"></div>
       </div>
     </a>
 

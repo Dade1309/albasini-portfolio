@@ -345,9 +345,38 @@
     }
 
     .arrow {
-      font-size: 35px;
+      position: relative;
+      display: inline-block;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 34px;
+      line-height: 0;
+      font-size: 0;
+      color: #fff;
       transition: transform 0.3s ease;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.5);
+    }
+
+    .arrow::before {
+      content: "";
+      position: absolute;
+      left: 8%;
+      bottom: 8%;
+      width: 92%;
+      height: 2px;
+      background: currentColor;
+      transform: rotate(-45deg);
+      transform-origin: left center;
+    }
+
+    .arrow::after {
+      content: "";
+      position: absolute;
+      top: 5%;
+      right: 5%;
+      width: 34%;
+      height: 34%;
+      border-top: 2px solid currentColor;
+      border-right: 2px solid currentColor;
     }
 
     .place-card:hover .arrow {
@@ -758,7 +787,7 @@ nav .photo-gallery-open{cursor:pointer}
             </div>
           </div>
 
-          <div style="font-size:34px;">↗</div>
+          <div class="arrow" aria-hidden="true"></div>
         </div>
       </a>
 
@@ -799,7 +828,7 @@ nav .photo-gallery-open{cursor:pointer}
             </div>
           </div>
 
-          <div style="font-size:34px;">↗</div>
+          <div class="arrow" aria-hidden="true"></div>
         </div>
       </a>
 
