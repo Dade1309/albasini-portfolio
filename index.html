@@ -159,7 +159,7 @@
 
     .hero-bottom {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 40px;
 
       align-items: end;
@@ -177,15 +177,6 @@
       font-weight: 500;
       margin-bottom: 12px;
     }
-
-    .hero-statement {
-      max-width: 530px;
-
-      font-family: "DM Serif Display", serif;
-      font-size: clamp(32px, 4vw, 61px);
-      line-height: 0.98;
-    }
-
 
     /* =========================
        SECTIONS
@@ -622,15 +613,15 @@
     }
 
     .about-body .about-signature {
-      margin-top: 38px;
-      padding-top: 27px;
+      margin-top: 18px;
+      padding-bottom: 28px;
 
-      border-top: 1px solid rgba(255,255,255,0.13);
+      border-bottom: 1px solid rgba(255,255,255,0.13);
 
-      color: #f1efe8;
-      font-family: "DM Serif Display", serif;
-      font-size: clamp(25px, 2.7vw, 38px);
-      line-height: 1.18;
+      color: rgba(241,239,232,0.58);
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 1.75;
     }
 
 
@@ -755,10 +746,10 @@
         padding:
           136px
           var(--page-gutter)
-          42px;
+          48px;
 
-        min-height: 100vh;
-        min-height: 100svh;
+        min-height: auto;
+        justify-content: flex-start;
       }
 
       .hero-title {
@@ -773,11 +764,16 @@
 
       .hero-bottom {
         grid-template-columns: 1fr;
+        margin-top: 28px;
       }
 
-      .hero-statement {
-        margin-top: 46px;
-        font-size: clamp(31px, 9.5vw, 48px);
+      #about {
+        padding-top: 48px;
+        padding-bottom: 28px;
+      }
+
+      #destinations {
+        padding-top: 28px;
       }
 
       section {
@@ -908,6 +904,12 @@
         line-height: 1.72;
       }
 
+      .about-body .about-signature {
+        padding-bottom: 22px;
+        font-size: 13px;
+        line-height: 1.72;
+      }
+
       .contact {
         min-height: auto;
       }
@@ -994,12 +996,6 @@
         </strong>
 
         TRAVEL · NATURE · LIFESTYLE
-
-      </div>
-<div class="hero-statement">
-
-        Visual stories shaped by
-        places, movement and emotion.
 
       </div>
 </div>
