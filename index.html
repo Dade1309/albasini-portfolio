@@ -4,8 +4,8 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>ALBASINI — Visual Storyteller</title>
-<meta content="ALBASINI — Visual storytelling through travel, photography, film and movement." name="description"/>
+<title>ALBASINI JOURNAL — Visual Storyteller</title>
+<meta content="ALBASINI JOURNAL — Visual storytelling through travel, photography, film and movement." name="description"/>
 <link href="https://dade1309.github.io/albasini-portfolio/" rel="canonical"/>
 <meta content="website" property="og:type"/>
 <meta content="https://dade1309.github.io/albasini-portfolio/" property="og:url"/>
@@ -15,7 +15,7 @@
 <meta content="2048" property="og:image:width"/>
 <meta content="1365" property="og:image:height"/>
 <meta content="Davide Albasini in the California desert at sunset" property="og:image:alt"/>
-<meta content="ALBASINI" property="og:site_name"/>
+<meta content="ALBASINI JOURNAL" property="og:site_name"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Davide Albasini — Travel Photography &amp; Visual Storytelling" name="twitter:title"/>
 <meta content="A visual travel journal documenting places, people and moments across California, New York, the Dolomites and the journeys still ahead." name="twitter:description"/>
@@ -30,6 +30,12 @@
        BASE
     ========================== */
 
+    :root {
+      --page-gutter: clamp(20px, 4vw, 68px);
+      --section-space: clamp(88px, 8vw, 128px);
+      --media-gap: clamp(20px, 1.7vw, 26px);
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -38,6 +44,7 @@
 
     html {
       scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
     }
 
     body {
@@ -79,7 +86,7 @@
       align-items: center;
       justify-content: space-between;
 
-      padding: 24px 4vw;
+      padding: 24px var(--page-gutter);
 
       background: linear-gradient(
         to bottom,
@@ -117,6 +124,7 @@
 
     .hero {
       min-height: 100vh;
+      min-height: 100svh;
 
       display: flex;
       flex-direction: column;
@@ -124,20 +132,29 @@
 
       padding:
         140px
-        4vw
-        55px;
+        var(--page-gutter)
+        64px;
 
       border-bottom: 1px solid rgba(255,255,255,0.10);
     }
 
     .hero-title {
       font-family: "DM Serif Display", serif;
-      font-size: clamp(95px, 18vw, 310px);
+      font-size: clamp(88px, 15.5vw, 260px);
       font-weight: 400;
-      line-height: 0.72;
-      letter-spacing: -0.07em;
+      line-height: 0.71;
+      letter-spacing: -0.06em;
 
-      white-space: nowrap;
+      max-width: 100%;
+    }
+
+    .hero-title span {
+      display: block;
+      width: fit-content;
+    }
+
+    .hero-title span:last-child {
+      margin-left: clamp(28px, 8vw, 130px);
     }
 
     .hero-bottom {
@@ -175,7 +192,11 @@
     ========================== */
 
     section {
-      padding: 100px 4vw;
+      padding: var(--section-space) var(--page-gutter);
+    }
+
+    section[id] {
+      scroll-margin-top: 82px;
     }
 
     .section-top {
@@ -197,7 +218,7 @@
     ========================== */
 
     #destinations {
-      padding-top: 120px;
+      padding-top: var(--section-space);
     }
 
     .destinations-title {
@@ -212,7 +233,7 @@
     .destination-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
+      gap: var(--media-gap);
     }
 
     .destination-card {
@@ -655,7 +676,7 @@
     ========================== */
 
     footer {
-      padding: 25px 4vw 40px;
+      padding: 25px var(--page-gutter) 40px;
 
       display: flex;
       justify-content: space-between;
@@ -690,15 +711,41 @@
 
 @media (max-width: 850px) {
 
+      :root {
+        --page-gutter: 20px;
+        --section-space: 74px;
+        --media-gap: 20px;
+      }
+
       header {
-        padding: 20px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+
+        padding:
+          max(18px, env(safe-area-inset-top))
+          max(var(--page-gutter), env(safe-area-inset-right))
+          18px
+          max(var(--page-gutter), env(safe-area-inset-left));
+
+        background: linear-gradient(
+          to bottom,
+          rgba(13,13,12,0.97),
+          rgba(13,13,12,0.84) 72%,
+          rgba(13,13,12,0)
+        );
       }
 
       nav {
-        gap: 15px;
+        width: 100%;
+        justify-content: space-between;
+        gap: 12px;
       }
 
-      nav a:nth-child(3),
+      nav a {
+        font-size: 10px;
+      }
+
       nav a:nth-child(4),
       nav a:nth-child(5) {
         display: none;
@@ -706,15 +753,22 @@
 
       .hero {
         padding:
-          120px
-          20px
-          40px;
+          136px
+          var(--page-gutter)
+          42px;
 
-        min-height: 95vh;
+        min-height: 100vh;
+        min-height: 100svh;
       }
 
       .hero-title {
-        font-size: clamp(74px, 24vw, 150px);
+        font-size: clamp(64px, 21.5vw, 126px);
+        line-height: 0.76;
+        letter-spacing: -0.055em;
+      }
+
+      .hero-title span:last-child {
+        margin-left: 0;
       }
 
       .hero-bottom {
@@ -722,11 +776,31 @@
       }
 
       .hero-statement {
-        margin-top: 60px;
+        margin-top: 46px;
+        font-size: clamp(31px, 9.5vw, 48px);
       }
 
       section {
-        padding: 80px 20px;
+        padding: var(--section-space) var(--page-gutter);
+      }
+
+      section[id] {
+        scroll-margin-top: 102px;
+      }
+
+      .section-top {
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 30px;
+      }
+
+      .section-top span:last-child {
+        text-align: right;
+      }
+
+      .destinations-title {
+        margin-bottom: 44px;
+        font-size: clamp(43px, 13vw, 64px);
       }
 
       .destination-grid {
@@ -738,18 +812,49 @@
       }
 
       .destination-card,
-      .destination-card.large {
-        min-height: 520px;
+      .destination-card.large,
+      .destination-card.coming-soon {
+        min-height: 0;
+        aspect-ratio: 4 / 5;
       }
 
       .destination-content {
-        left: 22px;
-        right: 22px;
-        bottom: 25px;
+        left: 20px;
+        right: 20px;
+        bottom: 22px;
+
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 16px;
+      }
+
+      .destination-name,
+      .destination-card:not(.large) .destination-name {
+        font-size: clamp(39px, 12vw, 58px);
+      }
+
+      .destination-description {
+        max-width: 250px;
+        font-size: 9px;
+        line-height: 1.5;
+      }
+
+      .destination-arrow {
+        width: 38px;
+        height: 38px;
+        flex-basis: 38px;
+      }
+
+      .destination-status {
+        align-self: end;
+        padding: 9px 10px;
+        font-size: 8px;
       }
 
       .work-feature {
         grid-template-columns: 1fr 35px;
+        gap: 20px;
+        padding: 26px 0;
       }
 
       .work-info {
@@ -757,32 +862,100 @@
       }
 
       .service-row {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr) 28px;
+        gap: 18px;
+        padding: 26px 0;
+      }
+
+      .service-text {
+        grid-column: 1 / -1;
+      }
+
+      .service-arrow {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
       }
 
       .about-layout {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: 28px;
+      }
+
+      .about-portrait {
+        width: clamp(132px, 40vw, 168px);
       }
 
       .about-portrait img {
-        aspect-ratio: 5 / 6;
-        object-position: 61% center;
+        aspect-ratio: 4 / 3;
+        object-position: 58% center;
+      }
+
+      .about-caption {
+        display: none;
       }
 
       .about-title {
-        font-size: clamp(42px, 12vw, 62px);
+        font-size: clamp(41px, 12vw, 58px);
+      }
+
+      .about-body {
+        margin-top: 30px;
+      }
+
+      .about-body p {
+        font-size: 13px;
+        line-height: 1.72;
+      }
+
+      .contact {
+        min-height: auto;
+      }
+
+      .contact-title {
+        font-size: clamp(44px, 13vw, 62px);
       }
 
       .contact-bottom {
+        margin-top: 58px;
         flex-direction: column;
         gap: 18px;
       }
 
       footer {
-        padding: 20px;
+        padding:
+          20px
+          max(var(--page-gutter), env(safe-area-inset-right))
+          max(32px, env(safe-area-inset-bottom))
+          max(var(--page-gutter), env(safe-area-inset-left));
         flex-direction: column;
         gap: 10px;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .brand {
+        font-size: 10px;
+      }
+
+      nav {
+        gap: 9px;
+      }
+
+      nav a {
+        font-size: 9px;
+      }
+
+      .hero-title {
+        font-size: clamp(59px, 20.5vw, 80px);
+      }
+    }
+
+    @media (hover: none) {
+      .destination-card:hover video,
+      .destination-card:hover img,
+      .destination-card:hover .destination-background {
+        transform: none;
       }
     }
 
@@ -797,11 +970,11 @@
     DAVIDE ALBASINI / 2026
   </a>
 <nav>
+<a href="#about">About</a>
 <a href="#destinations">Destinations</a>
 <a href="travel.html">Travel</a>
 <a href="#work">Work</a>
 <a href="#services">Services</a>
-<a href="#about">About</a>
 <a href="#contact">Contact</a>
 </nav>
 </header>
@@ -811,7 +984,8 @@
 <main>
 <section class="hero" id="top">
 <div class="hero-title">
-      ALBASINI
+<span>ALBASINI</span>
+<span>JOURNAL</span>
     </div>
 <div class="hero-bottom">
 <div class="hero-role">
@@ -831,11 +1005,73 @@
 </div>
 </section>
 <!-- ======================================
+     ABOUT
+======================================= -->
+<section class="about" id="about">
+<div class="about-label">
+    01 / About
+  </div>
+<div class="about-layout">
+<figure class="about-portrait">
+<img alt="Davide Albasini traveling through the California desert" src="images/about-portrait.jpg"/>
+<figcaption class="about-caption">
+<span>California, United States</span>
+<span>Behind the lens</span>
+</figcaption>
+</figure>
+<div class="about-copy">
+<div class="about-kicker">The journey so far</div>
+<div class="about-title">
+      Travel changed the way
+      I see the world.
+    </div>
+<div class="about-body">
+<p>
+      I’m Davide Albasini, an Italian traveler and photographer currently based
+      between Italy and the United States, where I have spent the past four years.
+    </p>
+<p>
+      Living away from home changed the way I see the world. It gave me the opportunity
+      to discover new places, experience different environments, and gradually realize
+      how important travel was becoming in my life.
+    </p>
+<p>
+      My passion for photography began naturally during my first trips. Wherever I went,
+      I felt the need to document everything—the landscapes, the streets, the light,
+      the people, and the small moments in between. I wanted to remember not only where
+      I had been, but also how those places made me feel.
+    </p>
+<p>
+      At first, photography was simply a way to preserve memories. Then I bought my
+      first camera, and everything changed.
+    </p>
+<p>
+      I started paying closer attention to composition, light, atmosphere, and the
+      details that make every place unique. Photography became more than documentation.
+      It became a way of experiencing travel differently and telling stories through
+      what I saw.
+    </p>
+<p>
+      Today, I know what I want to build my life around: traveling, discovering the world,
+      and documenting the journey along the way.
+    </p>
+<p>
+      This website marks the beginning of that story—a collection of the places I’ve
+      experienced, the moments I’ve captured, and the journeys still ahead.
+    </p>
+<p class="about-signature">
+      I want to make travel my life—and document every part of the journey.
+    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- ======================================
      DESTINATIONS
 ======================================= -->
 <section id="destinations">
 <div class="section-top">
-<span>01 / Destinations</span>
+<span>02 / Destinations</span>
 <span>Stories across places</span>
 </div>
 <h2 class="destinations-title">
@@ -933,7 +1169,7 @@
 <section class="work" id="work">
 
   <div class="section-top">
-    <span>02 / Selected Work</span>
+    <span>03 / Selected Work</span>
     <span>Film · Photography · Editing</span>
   </div>
 
@@ -970,7 +1206,7 @@
 ======================================= -->
 <section class="services" id="services">
 <div class="section-top">
-<span>03 / Services</span>
+<span>04 / Services</span>
 <span>Available for selected projects</span>
 </div>
 <div class="service-row">
@@ -1012,68 +1248,6 @@
       that connect places, movement and real experiences.
     </div>
 <div class="service-arrow" aria-hidden="true"></div>
-</div>
-</section>
-<!-- ======================================
-     ABOUT
-======================================= -->
-<section class="about" id="about">
-<div class="about-label">
-    04 / About
-  </div>
-<div class="about-layout">
-<figure class="about-portrait">
-<img alt="Davide Albasini traveling through the California desert" src="images/about-portrait.jpg"/>
-<figcaption class="about-caption">
-<span>California, United States</span>
-<span>Behind the lens</span>
-</figcaption>
-</figure>
-<div class="about-copy">
-<div class="about-kicker">The journey so far</div>
-<div class="about-title">
-      Travel changed the way
-      I see the world.
-    </div>
-<div class="about-body">
-<p>
-      I’m Davide Albasini, an Italian traveler and photographer currently based
-      between Italy and the United States, where I have spent the past four years.
-    </p>
-<p>
-      Living away from home changed the way I see the world. It gave me the opportunity
-      to discover new places, experience different environments, and gradually realize
-      how important travel was becoming in my life.
-    </p>
-<p>
-      My passion for photography began naturally during my first trips. Wherever I went,
-      I felt the need to document everything—the landscapes, the streets, the light,
-      the people, and the small moments in between. I wanted to remember not only where
-      I had been, but also how those places made me feel.
-    </p>
-<p>
-      At first, photography was simply a way to preserve memories. Then I bought my
-      first camera, and everything changed.
-    </p>
-<p>
-      I started paying closer attention to composition, light, atmosphere, and the
-      details that make every place unique. Photography became more than documentation.
-      It became a way of experiencing travel differently and telling stories through
-      what I saw.
-    </p>
-<p>
-      Today, I know what I want to build my life around: traveling, discovering the world,
-      and documenting the journey along the way.
-    </p>
-<p>
-      This website marks the beginning of that story—a collection of the places I’ve
-      experienced, the moments I’ve captured, and the journeys still ahead.
-    </p>
-<p class="about-signature">
-      I want to make travel my life—and document every part of the journey.
-    </p>
-</div>
-</div>
 </div>
 </section>
 <!-- ======================================
